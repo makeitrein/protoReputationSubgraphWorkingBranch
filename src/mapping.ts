@@ -27,7 +27,7 @@ function checkType(event: ethereum.EventParam): Array<string> {
   switch(event.value.kind){
     case ethereum.ValueKind.ADDRESS:
       ret = [
-        event.value.toAddress().toString(),
+        event.value.toAddress().toHexString(),
         "ADDRESS"
       ]
       break
