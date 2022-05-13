@@ -1,13 +1,13 @@
 {
-  "name": "super-rare-proto-reputation",
+  "name": "sr-proto-subgraph",
   "license": "UNLICENSED",
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ mercuricchloride/super-rare-proto-reputation",
-    "create-local": "graph create --node http://localhost:8020/ mercuricchloride/super-rare-proto-reputation",
-    "remove-local": "graph remove --node http://localhost:8020/ mercuricchloride/super-rare-proto-reputation",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 mercuricchloride/super-rare-proto-reputation"
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ graphrica/sr-proto-subgraph",
+    "create-local": "graph create --node http://localhost:8020/ graphrica/sr-proto-subgraph",
+    "remove-local": "graph remove --node http://localhost:8020/ graphrica/sr-proto-subgraph",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 graphrica/sr-proto-subgraph"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.30.0-alpha.1",

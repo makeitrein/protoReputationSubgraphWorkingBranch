@@ -27,7 +27,7 @@ function checkType(event: ethereum.EventParam): Array<string> {
   switch(event.value.kind){
     case ethereum.ValueKind.ADDRESS:
       ret = [
-        event.value.toAddress().toString(),
+        event.value.toAddress().toHexString(),
         "ADDRESS"
       ]
       break
@@ -154,6 +154,41 @@ function getOrCreateBaseMetric(
         param.paramName6 =  eventParam.name
         param.paramValue6 = info[0] 
         param.paramType6 = info[1] 
+        break
+      case 6:
+        param.paramName7 =  eventParam.name
+        param.paramValue7 = info[0]
+        param.paramType7 = info[1]
+        break
+      case 7:
+        param.paramName8 =  eventParam.name
+        param.paramValue8 = info[0]
+        param.paramType8 = info[1] 
+        break
+      case 8:
+        param.paramName9 =  eventParam.name
+        param.paramValue9 = info[0] 
+        param.paramType9 = info[1] 
+        break
+      case 9:
+        param.paramName10 =  eventParam.name
+        param.paramValue10 = info[0] 
+        param.paramType10 = info[1] 
+        break
+      case 10:
+        param.paramName11 =  eventParam.name
+        param.paramValue11 = info[0] 
+        param.paramType11 = info[1] 
+        break
+      case 11:
+        param.paramName12 =  eventParam.name
+        param.paramValue12 = info[0] 
+        param.paramType12 = info[1] 
+        break
+      case 12:
+        param.paramName13 =  eventParam.name
+        param.paramValue13 = info[0] 
+        param.paramType13 = info[1] 
         break
       default:
         break
