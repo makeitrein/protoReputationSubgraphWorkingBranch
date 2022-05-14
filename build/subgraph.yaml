@@ -1,6 +1,6 @@
 specVersion: 0.0.5
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: bayc
@@ -24,7 +24,7 @@ dataSources:
         - UserBadge
       abis:
         - name: bayc
-          file: ./abis/bayc.json
+          file: bayc/abis/bayc.json
       eventHandlers:
         - event: Approval(indexed address,indexed address,indexed uint256)
           handler: handleApproval
@@ -34,7 +34,7 @@ dataSources:
           handler: handleOwnershipTransferred
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
-      file: ./src/mapping.ts
+      file: bayc/bayc.wasm
   - kind: ethereum
     name: Contract
     network: mainnet
@@ -61,7 +61,7 @@ dataSources:
         - Transfer
       abis:
         - name: Contract
-          file: ./abis/Contract.json
+          file: Contract/abis/Contract.json
       eventHandlers:
         - event: Approval(indexed address,indexed address,indexed uint256)
           handler: handleApproval
@@ -87,4 +87,4 @@ dataSources:
           handler: handleStartingIndexSetPublicSale
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
-      file: ./src/contract.ts
+      file: Contract/Contract.wasm
