@@ -1,0 +1,36 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: bayc
+    network: mainnet
+    source:
+      address: "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d"
+      abi: bayc
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - BaseMetric
+        - TransactionMetadata
+        - InMemoryIncrementStore
+        - EventType
+        - MetricParam
+        - BadgeType
+        - BadgeMetricLookup
+        - UserBadge
+      abis:
+        - name: bayc
+          file: ./abis/bayc.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/mapping.ts
