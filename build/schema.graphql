@@ -84,10 +84,6 @@ type EventType @entity {
   smartContract: SmartContract
 }
 
-enum ReputationSourceType {
-  DAO
-  PROTOCOL
-}
 """
 Source of Reputation
 """
@@ -96,8 +92,6 @@ type ReputationSource @entity {
   id: ID!
   "Description of the subgraph (Optional)"
   description: String
-  "Type of reputation source  (Optional)"
-  type: ReputationSourceType
   "Smart contracts that are part of this reputation source"
   smartContracts: [SmartContract!] @derivedFrom(field: "reputationSource")
 }
@@ -106,11 +100,11 @@ type ReputationSource @entity {
 Smart Contracts indexed by this subgraph, belongs to a single ReputationSource
 """
 type SmartContract @entity {
-  "Address of smart contract"
+  "Address of smart contract + ChainID"
   id: ID!
+  address: Bytes!
   startBlock: BigInt!
-  network: String!
-  chain: String!
+  chainID: BigInt!
   reputationSource: ReputationSource!
   eventTypes: [EventType!] @derivedFrom(field: "smartContract")
 }

@@ -888,23 +888,6 @@ export class ReputationSource extends Entity {
     }
   }
 
-  get type(): string | null {
-    let value = this.get("type");
-    if (!value || value.kind == ValueKind.NULL) {
-      return null;
-    } else {
-      return value.toString();
-    }
-  }
-
-  set type(value: string | null) {
-    if (!value) {
-      this.unset("type");
-    } else {
-      this.set("type", Value.fromString(<string>value));
-    }
-  }
-
   get smartContracts(): Array<string> | null {
     let value = this.get("smartContracts");
     if (!value || value.kind == ValueKind.NULL) {
@@ -954,6 +937,15 @@ export class SmartContract extends Entity {
     this.set("id", Value.fromString(value));
   }
 
+  get address(): Bytes {
+    let value = this.get("address");
+    return value!.toBytes();
+  }
+
+  set address(value: Bytes) {
+    this.set("address", Value.fromBytes(value));
+  }
+
   get startBlock(): BigInt {
     let value = this.get("startBlock");
     return value!.toBigInt();
@@ -963,22 +955,13 @@ export class SmartContract extends Entity {
     this.set("startBlock", Value.fromBigInt(value));
   }
 
-  get network(): string {
-    let value = this.get("network");
-    return value!.toString();
+  get chainID(): BigInt {
+    let value = this.get("chainID");
+    return value!.toBigInt();
   }
 
-  set network(value: string) {
-    this.set("network", Value.fromString(value));
-  }
-
-  get chain(): string {
-    let value = this.get("chain");
-    return value!.toString();
-  }
-
-  set chain(value: string) {
-    this.set("chain", Value.fromString(value));
+  set chainID(value: BigInt) {
+    this.set("chainID", Value.fromBigInt(value));
   }
 
   get reputationSource(): string {

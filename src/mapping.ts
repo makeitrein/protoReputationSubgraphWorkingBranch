@@ -26,7 +26,6 @@ function getOrCreateReputationSource(): ReputationSource {
   let entity = ReputationSource.load(mockName);
   if (entity == null) {
     entity = new ReputationSource(mockName);
-    entity.type = mockType;
     entity.save();
   }
   return entity;
@@ -34,8 +33,7 @@ function getOrCreateReputationSource(): ReputationSource {
 
 function getOrCreateSmartContract(): SmartContract {
   let mockAddress = "0x3f0ad15fB1Ee96f649499C6198713D11781d93f2";
-  let mockChain = "ethereum";
-  let mockNetwork = "mainnet";
+  let mockChainID = BigInt.fromI32(1);
   let mockStartBlock = BigInt.fromI32(21266142);
   let entity = SmartContract.load(mockAddress);
   if (entity == null) {
@@ -43,8 +41,7 @@ function getOrCreateSmartContract(): SmartContract {
 
     let reputationSource = getOrCreateReputationSource();
     entity.reputationSource = reputationSource.id;
-    entity.chain = mockChain;
-    entity.network = mockNetwork;
+    entity.chainID = mockChainID;
     entity.startBlock = mockStartBlock;
     entity.save();
   }
