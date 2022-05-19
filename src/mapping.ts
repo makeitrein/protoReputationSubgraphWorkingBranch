@@ -40,6 +40,9 @@ function getOrCreateSmartContract(): SmartContract {
   let entity = SmartContract.load(mockAddress);
   if (entity == null) {
     entity = new SmartContract(mockAddress);
+
+    let reputationSource = getOrCreateReputationSource();
+    entity.reputationSource = reputationSource.id;
     entity.chain = mockChain;
     entity.network = mockNetwork;
     entity.startBlock = mockStartBlock;

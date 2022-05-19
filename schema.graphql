@@ -111,4 +111,5 @@ type SmartContract @entity {
   startBlock: BigInt!
   network: String!
   chain: String!
+  reputationSource: ReputationSource!
 }

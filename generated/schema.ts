@@ -964,4 +964,13 @@ export class SmartContract extends Entity {
   set chain(value: string) {
     this.set("chain", Value.fromString(value));
   }
+
+  get reputationSource(): string {
+    let value = this.get("reputationSource");
+    return value!.toString();
+  }
+
+  set reputationSource(value: string) {
+    this.set("reputationSource", Value.fromString(value));
+  }
 }
