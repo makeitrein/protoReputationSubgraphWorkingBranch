@@ -11,65 +11,6 @@ import {
   BigDecimal
 } from "@graphprotocol/graph-ts";
 
-export class BaseMetric extends Entity {
-  constructor(id: string) {
-    super();
-    this.set("id", Value.fromString(id));
-  }
-
-  save(): void {
-    let id = this.get("id");
-    assert(id != null, "Cannot save BaseMetric entity without an ID");
-    if (id) {
-      assert(
-        id.kind == ValueKind.STRING,
-        `Entities of type BaseMetric must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
-      );
-      store.set("BaseMetric", id.toString(), this);
-    }
-  }
-
-  static load(id: string): BaseMetric | null {
-    return changetype<BaseMetric | null>(store.get("BaseMetric", id));
-  }
-
-  get id(): string {
-    let value = this.get("id");
-    return value!.toString();
-  }
-
-  set id(value: string) {
-    this.set("id", Value.fromString(value));
-  }
-
-  get type(): string {
-    let value = this.get("type");
-    return value!.toString();
-  }
-
-  set type(value: string) {
-    this.set("type", Value.fromString(value));
-  }
-
-  get transactionMetadata(): string {
-    let value = this.get("transactionMetadata");
-    return value!.toString();
-  }
-
-  set transactionMetadata(value: string) {
-    this.set("transactionMetadata", Value.fromString(value));
-  }
-
-  get params(): string {
-    let value = this.get("params");
-    return value!.toString();
-  }
-
-  set params(value: string) {
-    this.set("params", Value.fromString(value));
-  }
-}
-
 export class TransactionMetadata extends Entity {
   constructor(id: string) {
     super();
@@ -209,47 +150,6 @@ export class InMemoryIncrementStore extends Entity {
 
   set incrementValue(value: BigInt) {
     this.set("incrementValue", Value.fromBigInt(value));
-  }
-}
-
-export class EventType extends Entity {
-  constructor(id: string) {
-    super();
-    this.set("id", Value.fromString(id));
-  }
-
-  save(): void {
-    let id = this.get("id");
-    assert(id != null, "Cannot save EventType entity without an ID");
-    if (id) {
-      assert(
-        id.kind == ValueKind.STRING,
-        `Entities of type EventType must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
-      );
-      store.set("EventType", id.toString(), this);
-    }
-  }
-
-  static load(id: string): EventType | null {
-    return changetype<EventType | null>(store.get("EventType", id));
-  }
-
-  get id(): string {
-    let value = this.get("id");
-    return value!.toString();
-  }
-
-  set id(value: string) {
-    this.set("id", Value.fromString(value));
-  }
-
-  get name(): string {
-    let value = this.get("name");
-    return value!.toString();
-  }
-
-  set name(value: string) {
-    this.set("name", Value.fromString(value));
   }
 }
 
@@ -793,5 +693,275 @@ export class UserBadge extends Entity {
 
   set vanityName(value: Bytes) {
     this.set("vanityName", Value.fromBytes(value));
+  }
+}
+
+export class BaseMetric extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save BaseMetric entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type BaseMetric must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("BaseMetric", id.toString(), this);
+    }
+  }
+
+  static load(id: string): BaseMetric | null {
+    return changetype<BaseMetric | null>(store.get("BaseMetric", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get type(): string {
+    let value = this.get("type");
+    return value!.toString();
+  }
+
+  set type(value: string) {
+    this.set("type", Value.fromString(value));
+  }
+
+  get transactionMetadata(): string {
+    let value = this.get("transactionMetadata");
+    return value!.toString();
+  }
+
+  set transactionMetadata(value: string) {
+    this.set("transactionMetadata", Value.fromString(value));
+  }
+
+  get params(): string | null {
+    let value = this.get("params");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set params(value: string | null) {
+    if (!value) {
+      this.unset("params");
+    } else {
+      this.set("params", Value.fromString(<string>value));
+    }
+  }
+}
+
+export class EventType extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save EventType entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type EventType must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("EventType", id.toString(), this);
+    }
+  }
+
+  static load(id: string): EventType | null {
+    return changetype<EventType | null>(store.get("EventType", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get eventCounter(): BigInt {
+    let value = this.get("eventCounter");
+    return value!.toBigInt();
+  }
+
+  set eventCounter(value: BigInt) {
+    this.set("eventCounter", Value.fromBigInt(value));
+  }
+
+  get baseMetrics(): Array<string> | null {
+    let value = this.get("baseMetrics");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toStringArray();
+    }
+  }
+
+  set baseMetrics(value: Array<string> | null) {
+    if (!value) {
+      this.unset("baseMetrics");
+    } else {
+      this.set("baseMetrics", Value.fromStringArray(<Array<string>>value));
+    }
+  }
+
+  get smartContract(): string | null {
+    let value = this.get("smartContract");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set smartContract(value: string | null) {
+    if (!value) {
+      this.unset("smartContract");
+    } else {
+      this.set("smartContract", Value.fromString(<string>value));
+    }
+  }
+}
+
+export class ReputationSource extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save ReputationSource entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type ReputationSource must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("ReputationSource", id.toString(), this);
+    }
+  }
+
+  static load(id: string): ReputationSource | null {
+    return changetype<ReputationSource | null>(
+      store.get("ReputationSource", id)
+    );
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get name(): string {
+    let value = this.get("name");
+    return value!.toString();
+  }
+
+  set name(value: string) {
+    this.set("name", Value.fromString(value));
+  }
+
+  get description(): string {
+    let value = this.get("description");
+    return value!.toString();
+  }
+
+  set description(value: string) {
+    this.set("description", Value.fromString(value));
+  }
+
+  get type(): string | null {
+    let value = this.get("type");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set type(value: string | null) {
+    if (!value) {
+      this.unset("type");
+    } else {
+      this.set("type", Value.fromString(<string>value));
+    }
+  }
+}
+
+export class SmartContract extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save SmartContract entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type SmartContract must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("SmartContract", id.toString(), this);
+    }
+  }
+
+  static load(id: string): SmartContract | null {
+    return changetype<SmartContract | null>(store.get("SmartContract", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get startBlock(): BigInt {
+    let value = this.get("startBlock");
+    return value!.toBigInt();
+  }
+
+  set startBlock(value: BigInt) {
+    this.set("startBlock", Value.fromBigInt(value));
+  }
+
+  get network(): string {
+    let value = this.get("network");
+    return value!.toString();
+  }
+
+  set network(value: string) {
+    this.set("network", Value.fromString(value));
+  }
+
+  get chain(): string {
+    let value = this.get("chain");
+    return value!.toString();
+  }
+
+  set chain(value: string) {
+    this.set("chain", Value.fromString(value));
   }
 }

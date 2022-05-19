@@ -1,10 +1,3 @@
-type BaseMetric @entity {
-  id: ID!
-  type: EventType!
-  transactionMetadata: TransactionMetadata!
-  params: MetricParam
-}
-
 type TransactionMetadata @entity {
   id: ID! # The TxHash toHex()
   txValue: BigInt!
@@ -18,10 +11,6 @@ type TransactionMetadata @entity {
 type InMemoryIncrementStore @entity {
   id: ID! # Always 1 =  store this const in the mapping and always just retrieve it - then incrementValue++ when new even
   incrementValue: BigInt!
-}
-
-type EventType @entity {
-  id: ID! #ToHex of EventName
 }
 
 type MetricParam @entity {
@@ -73,4 +62,53 @@ type UserBadge @entity {
   account: Bytes!
   vanityValue: Bytes! # HOW MUCH THEY HAVE CURATED IN TOTALITY
   vanityName: Bytes! #
+}
+
+"""
+BaseMetrics belong to a single SmartContract (Should we rename BaseMetrics to EventLog for clarity?)
+"""
+type BaseMetric @entity {
+  id: ID!
+  type: EventType!
+  transactionMetadata: TransactionMetadata!
+  params: MetricParam
+}
+
+"""
+EventType has derived BaseMetric, eventCounter, and SmartContract
+"""
+type EventType @entity {
+  id: ID! #ToHex of EventName
+  eventCounter: BigInt!
+  baseMetrics: [BaseMetric!] @derivedFrom(field: "type")
+  smartContract: SmartContract
+}
+
+enum ReputationSourceType {
+  DAO
+  PROTOCOL
+}
+"""
+Source of Reputation
+"""
+type ReputationSource @entity {
+  "Hardcoded to 1"
+  id: ID!
+  "Name of the subgraph"
+  name: String!
+  "Description of the subgraph"
+  description: String!
+  "Type of reputation source"
+  type: ReputationSourceType
+}
+
+"""
+Smart Contracts indexed by this subgraph, belongs to a single ReputationSource
+"""
+type SmartContract @entity {
+  "Address of smart contract"
+  id: ID!
+  startBlock: BigInt!
+  network: String!
+  chain: String!
 }
