@@ -102,7 +102,7 @@ Smart Contracts indexed by this subgraph, belongs to a single ReputationSource
 type SmartContract @entity {
   "Address of smart contract + ChainID"
   id: ID!
-  address: Bytes!
+  address: String!
   startBlock: BigInt!
   chainID: BigInt!
   reputationSource: ReputationSource!
