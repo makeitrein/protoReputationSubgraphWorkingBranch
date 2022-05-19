@@ -92,13 +92,11 @@ enum ReputationSourceType {
 Source of Reputation
 """
 type ReputationSource @entity {
-  "Hardcoded to 1"
-  id: ID!
   "Name of the subgraph"
-  name: String!
-  "Description of the subgraph"
-  description: String!
-  "Type of reputation source"
+  id: ID!
+  "Description of the subgraph (Optional)"
+  description: String
+  "Type of reputation source  (Optional)"
   type: ReputationSourceType
 }
 
