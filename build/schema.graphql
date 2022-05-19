@@ -92,12 +92,14 @@ enum ReputationSourceType {
 Source of Reputation
 """
 type ReputationSource @entity {
-  "Name of the subgraph"
+  "Name of the reputation source"
   id: ID!
   "Description of the subgraph (Optional)"
   description: String
   "Type of reputation source  (Optional)"
   type: ReputationSourceType
+  "Smart contracts that are part of this reputation source"
+  smartContracts: [SmartContract!] @derivedFrom(field: "reputationSource")
 }
 
 """
@@ -110,4 +112,5 @@ type SmartContract @entity {
   network: String!
   chain: String!
   reputationSource: ReputationSource!
+  eventTypes: [EventType!] @derivedFrom(field: "smartContract")
 }

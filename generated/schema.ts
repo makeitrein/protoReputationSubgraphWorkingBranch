@@ -904,6 +904,23 @@ export class ReputationSource extends Entity {
       this.set("type", Value.fromString(<string>value));
     }
   }
+
+  get smartContracts(): Array<string> | null {
+    let value = this.get("smartContracts");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toStringArray();
+    }
+  }
+
+  set smartContracts(value: Array<string> | null) {
+    if (!value) {
+      this.unset("smartContracts");
+    } else {
+      this.set("smartContracts", Value.fromStringArray(<Array<string>>value));
+    }
+  }
 }
 
 export class SmartContract extends Entity {
@@ -971,5 +988,22 @@ export class SmartContract extends Entity {
 
   set reputationSource(value: string) {
     this.set("reputationSource", Value.fromString(value));
+  }
+
+  get eventTypes(): Array<string> | null {
+    let value = this.get("eventTypes");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toStringArray();
+    }
+  }
+
+  set eventTypes(value: Array<string> | null) {
+    if (!value) {
+      this.unset("eventTypes");
+    } else {
+      this.set("eventTypes", Value.fromStringArray(<Array<string>>value));
+    }
   }
 }
