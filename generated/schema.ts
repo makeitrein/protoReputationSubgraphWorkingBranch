@@ -489,6 +489,363 @@ export class MetricParam extends Entity {
       this.set("paramType6", Value.fromString(<string>value));
     }
   }
+
+  get paramName7(): string | null {
+    let value = this.get("paramName7");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramName7(value: string | null) {
+    if (!value) {
+      this.unset("paramName7");
+    } else {
+      this.set("paramName7", Value.fromString(<string>value));
+    }
+  }
+
+  get paramValue7(): string | null {
+    let value = this.get("paramValue7");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramValue7(value: string | null) {
+    if (!value) {
+      this.unset("paramValue7");
+    } else {
+      this.set("paramValue7", Value.fromString(<string>value));
+    }
+  }
+
+  get paramType7(): string | null {
+    let value = this.get("paramType7");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramType7(value: string | null) {
+    if (!value) {
+      this.unset("paramType7");
+    } else {
+      this.set("paramType7", Value.fromString(<string>value));
+    }
+  }
+
+  get paramName8(): string | null {
+    let value = this.get("paramName8");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramName8(value: string | null) {
+    if (!value) {
+      this.unset("paramName8");
+    } else {
+      this.set("paramName8", Value.fromString(<string>value));
+    }
+  }
+
+  get paramValue8(): string | null {
+    let value = this.get("paramValue8");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramValue8(value: string | null) {
+    if (!value) {
+      this.unset("paramValue8");
+    } else {
+      this.set("paramValue8", Value.fromString(<string>value));
+    }
+  }
+
+  get paramType8(): string | null {
+    let value = this.get("paramType8");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramType8(value: string | null) {
+    if (!value) {
+      this.unset("paramType8");
+    } else {
+      this.set("paramType8", Value.fromString(<string>value));
+    }
+  }
+
+  get paramName9(): string | null {
+    let value = this.get("paramName9");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramName9(value: string | null) {
+    if (!value) {
+      this.unset("paramName9");
+    } else {
+      this.set("paramName9", Value.fromString(<string>value));
+    }
+  }
+
+  get paramValue9(): string | null {
+    let value = this.get("paramValue9");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramValue9(value: string | null) {
+    if (!value) {
+      this.unset("paramValue9");
+    } else {
+      this.set("paramValue9", Value.fromString(<string>value));
+    }
+  }
+
+  get paramType9(): string | null {
+    let value = this.get("paramType9");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramType9(value: string | null) {
+    if (!value) {
+      this.unset("paramType9");
+    } else {
+      this.set("paramType9", Value.fromString(<string>value));
+    }
+  }
+
+  get paramName10(): string | null {
+    let value = this.get("paramName10");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramName10(value: string | null) {
+    if (!value) {
+      this.unset("paramName10");
+    } else {
+      this.set("paramName10", Value.fromString(<string>value));
+    }
+  }
+
+  get paramValue10(): string | null {
+    let value = this.get("paramValue10");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramValue10(value: string | null) {
+    if (!value) {
+      this.unset("paramValue10");
+    } else {
+      this.set("paramValue10", Value.fromString(<string>value));
+    }
+  }
+
+  get paramType10(): string | null {
+    let value = this.get("paramType10");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramType10(value: string | null) {
+    if (!value) {
+      this.unset("paramType10");
+    } else {
+      this.set("paramType10", Value.fromString(<string>value));
+    }
+  }
+
+  get paramName11(): string | null {
+    let value = this.get("paramName11");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramName11(value: string | null) {
+    if (!value) {
+      this.unset("paramName11");
+    } else {
+      this.set("paramName11", Value.fromString(<string>value));
+    }
+  }
+
+  get paramValue11(): string | null {
+    let value = this.get("paramValue11");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramValue11(value: string | null) {
+    if (!value) {
+      this.unset("paramValue11");
+    } else {
+      this.set("paramValue11", Value.fromString(<string>value));
+    }
+  }
+
+  get paramType11(): string | null {
+    let value = this.get("paramType11");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramType11(value: string | null) {
+    if (!value) {
+      this.unset("paramType11");
+    } else {
+      this.set("paramType11", Value.fromString(<string>value));
+    }
+  }
+
+  get paramName12(): string | null {
+    let value = this.get("paramName12");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramName12(value: string | null) {
+    if (!value) {
+      this.unset("paramName12");
+    } else {
+      this.set("paramName12", Value.fromString(<string>value));
+    }
+  }
+
+  get paramValue12(): string | null {
+    let value = this.get("paramValue12");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramValue12(value: string | null) {
+    if (!value) {
+      this.unset("paramValue12");
+    } else {
+      this.set("paramValue12", Value.fromString(<string>value));
+    }
+  }
+
+  get paramType12(): string | null {
+    let value = this.get("paramType12");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramType12(value: string | null) {
+    if (!value) {
+      this.unset("paramType12");
+    } else {
+      this.set("paramType12", Value.fromString(<string>value));
+    }
+  }
+
+  get paramName13(): string | null {
+    let value = this.get("paramName13");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramName13(value: string | null) {
+    if (!value) {
+      this.unset("paramName13");
+    } else {
+      this.set("paramName13", Value.fromString(<string>value));
+    }
+  }
+
+  get paramValue13(): string | null {
+    let value = this.get("paramValue13");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramValue13(value: string | null) {
+    if (!value) {
+      this.unset("paramValue13");
+    } else {
+      this.set("paramValue13", Value.fromString(<string>value));
+    }
+  }
+
+  get paramType13(): string | null {
+    let value = this.get("paramType13");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set paramType13(value: string | null) {
+    if (!value) {
+      this.unset("paramType13");
+    } else {
+      this.set("paramType13", Value.fromString(<string>value));
+    }
+  }
 }
 
 export class BadgeType extends Entity {

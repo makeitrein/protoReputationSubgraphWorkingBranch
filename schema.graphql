@@ -39,6 +39,34 @@ type MetricParam @entity {
   paramName6: String
   paramValue6: String
   paramType6: String
+
+  paramName7: String
+  paramValue7: String
+  paramType7: String
+
+  paramName8: String
+  paramValue8: String
+  paramType8: String
+
+  paramName9: String
+  paramValue9: String
+  paramType9: String
+
+  paramName10: String
+  paramValue10: String
+  paramType10: String
+
+  paramName11: String
+  paramValue11: String
+  paramType11: String
+
+  paramName12: String
+  paramValue12: String
+  paramType12: String
+
+  paramName13: String
+  paramValue13: String
+  paramType13: String
 }
 
 type BadgeType @entity {
