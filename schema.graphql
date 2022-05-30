@@ -69,15 +69,6 @@ type MetricParam @entity {
   paramType13: String
 }
 
-type BadgeType @entity {
-  id: ID!
-  name: String! #The Badge
-  ipfs: String! #The
-  soul: BigInt!
-  linkingParam: String! # This is what ties a baseMetric to a user
-  baseMetric: [BadgeMetricLookup!] #The base
-}
-
 type BadgeMetricLookup @entity {
   id: ID! #Combination of BaseMetric ID + BaseID
   badge: BadgeType! #Combination of
@@ -87,9 +78,8 @@ type BadgeMetricLookup @entity {
 type UserBadge @entity {
   id: ID! #BadgeTypeID + UserAddress
   badge: BadgeType! #Combination of
-  account: Bytes!
-  vanityValue: Bytes! # HOW MUCH THEY HAVE CURATED IN TOTALITY
-  vanityName: Bytes! #
+  account: String!
+  #baseMetric: BaseMetric!
 }
 
 """
@@ -135,4 +125,35 @@ type SmartContract @entity {
   chainID: BigInt!
   reputationSource: ReputationSource!
   eventTypes: [EventType!] @derivedFrom(field: "smartContract")
+}
+
+"""
+New Schema Types we are going to work with
+"""
+
+type UserProgress @entity {
+  id: ID! #id is user address + BadgePathway ID
+  address: String!
+  badgePathway: BadgePathway!
+  value: BigInt! #This should be counter or accumulator value
+  #baseMetric: [BaseMetric!] #The array of BaseMetric ids that have been used so far to track progress
+}
+
+type BadgePathway @entity {
+  id: ID! # passed in from front end
+  badges: [BadgeType!] #What badges exist within this path (nodes on the skilltree)
+  # This could be an ENUM, transaction metadata or metric param
+  comparisonObject: String #object key within the base metric we are referencing ie: baseMetric['txMetadata']
+  comparisonLinkage: String #What linkage is used in the comparison
+  # This could be an ENUM, transaction metadata or metric param
+  winnerObject: String! #object key within the base metric we are referencing the winner from ie: baseMetric['txMetadata']
+  winnerLinkage: String! #What linkage represents the winner of the badge.
+}
+
+type BadgeType @entity {
+  id: ID! #badge type is badgePathway id + level
+  name: String! #The Badge name
+  ipfs: String! #The badge image
+  soul: BigInt! #soulscore of badge
+  pathway: BadgePathway! #pathway this badge is a part of
 }

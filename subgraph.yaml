@@ -14,14 +14,16 @@ dataSources:
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
-        - BaseMetric
         - TransactionMetadata
         - InMemoryIncrementStore
-        - EventType
         - MetricParam
         - BadgeType
         - BadgeMetricLookup
         - UserBadge
+        - BaseMetric
+        - EventType
+        - ReputationSource
+        - SmartContracs
       abis:
         - name: superRare
           file: ./abis/superRare.json
